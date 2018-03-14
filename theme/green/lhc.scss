@@ -1,0 +1,1138 @@
+
+/*
+* lhc.scss
+* 六合彩
+* 修改颜色，需修改baseColor，highColor，hoverColor，gridBorderColor 和 .quick-bet-area class里的颜色
+*/
+
+
+$baseColor: #0A9B25 !default;
+$highColor: #05B726 !default;
+$hoverColor: #0DAF2B !default;
+
+
+$gridBorderColor: #C9F1C5 !default;
+$gridBgColor: #ECFFE1 !default;
+
+.lhc-play-choice {
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(#ECEAEA, #FFFFFF, #E7E7E7);
+  border: 1px solid #DBDBDB;
+  border-radius: 4px;
+  box-shadow: 0 2px 0 #E6E6E6;
+  width: 1000px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  padding: 2px;
+  div {
+    // padding: 0px 19px;
+    width: 80px;
+    height: 32px;
+    color: #666666;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 1px;
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
+  .play-selected {
+    background-color: $baseColor;
+    color: #FFFFFF;
+    &:hover {
+      background-color: $baseColor;
+    }
+  }
+}
+
+/*bet area*/
+
+.lhc-bet-area {
+  width: 1000px;
+  position: relative;
+  margin: 0px auto;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  .tool-bar {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    .funs {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .quick-money-setting {
+        width: 137px;
+        height: 32px;
+        background-color: #FF5755;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+          background-color: #ff7c7a;
+        }
+        i {
+          color: #FFFFFF;
+          font-size: 24px;
+          padding-top: 4px;
+          padding-right: 4px;
+        }
+        span {
+          font-size: 14px;
+          color: #FFFFFF;
+        }
+      }
+      .quick-bet {
+        width: 110px;
+        height: 32px;
+        border: none;
+        border-radius: 4px;
+        background-color: #538DFF;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          background-color: #8bb1ff;
+        }
+        i {
+          color: #FFFFFF;
+          padding-right: 5px;
+        }
+        span {
+          font-size: 14px;
+          color: #FFFFFF;
+        }
+      }
+    }
+
+  }
+  .tabs {
+    position: relative;
+    background-color: $gridBgColor;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    > div {
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0px 30px;
+      transition: background-color 0.3s linear;
+      label {
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        color: $baseColor;
+      }
+      span {
+        font-size: 14px;
+        color: $baseColor;
+        margin-top: -8px;
+        line-height: 25px;
+      }
+    }
+    .tab-selected {
+      background-color: $baseColor;
+      label {
+        color: #FFFFFF;
+      }
+      span {
+        color: #FFFFFF;
+      }
+    }
+
+  }
+}
+
+ul.subTabs {
+  margin-top: -20px;
+  border: 1px solid $baseColor;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  li {
+    list-style: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+  }
+  .active {
+    color: $baseColor;
+    text-decoration: underline;
+  }
+}
+
+.bet-grid {
+  border: 1px solid $baseColor;
+  display: flex;
+  flex-direction: column;
+  .title {
+    background-color: $gridBgColor;
+  }
+}
+
+.td-title {
+  width: 100%;
+  font-size: 14px;
+  background-color: $gridBgColor;
+  color: #333333;
+}
+
+.row {
+  width: 100%;
+  border-bottom: 1px solid $gridBorderColor;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &:last-child {
+    border: none;
+  }
+  .title {
+    background-color: $gridBgColor;
+    .cell > div {
+      color: #333333;
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+    }
+  }
+}
+
+.row .cell:last-child > div:last-child {
+  border: none;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  >div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    text-align: center;
+    border-right: 1px solid $gridBorderColor;
+  }
+  .item-selected {
+    background-color: $gridBorderColor;
+  }
+  .number {
+    color: #4c4c4c;
+    font-size: 14px;
+    width: 20%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sheng-xiao {
+    color: #4c4c4c;
+    font-size: 14px;
+    width: 20%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;;
+    align-items: center;
+    padding-left: 25px;
+  }
+  .odds {
+    font-size: 14px;
+    width: 20%;
+    span {
+      font-size: 14px;
+      color: #f73131;
+    }
+  }
+  .money {
+    width: 60%;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      input {
+        background-color: #f0f7fb;
+        font-size: 14px;
+        width: 75%;
+        height: 25px;
+        border: 1px solid #e9f0f4;
+        border-radius: 10px;
+        padding: 0px 5px;
+        &[type='radio'] {
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+  }
+  .balls {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    span + span {
+      margin-left: 3px;
+    }
+  }
+  .radio {
+    cursor: pointer;
+    i {
+      padding-top: 2px;
+      &:before {
+        font-size: 16px;
+      }
+    }
+    .icon-radio-check {
+      &:before {
+        font-size: 18px;
+      }
+    }
+  }
+  .select {
+    cursor: pointer;
+    i {
+      padding-top: 2px;
+      &:before {
+        font-size: 18px;
+      }
+    }
+    .icon-checkbox-check {
+      &:before {
+        color: $baseColor;
+      }
+    }
+  }
+}
+
+.bet-grid + .bet-grid {
+  margin-top: 30px;
+}
+
+.main-title {
+  background-color: $gridBgColor;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.totle-title > div {
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-right: 1px solid $gridBorderColor;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.row .label {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  border-right: 1px solid $gridBorderColor;
+  font-size: 14px;
+  background-color: $gridBgColor;
+}
+
+.lianma-area {
+  .xiao-chuan-wei-shu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .jiao-cha-peng {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    .select-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .item {
+        width: 480px;
+        border: 2px solid $gridBorderColor;
+        padding: 5px;
+        min-height: 80px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        position: relative;
+        + .item {
+          margin-top: 10px;
+        }
+        span {
+          margin-left: 10px;
+          margin-bottom: 10px;
+          cursor: pointer!important;
+        }
+        .del {
+          border: none;
+          background-color: $gridBorderColor;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          padding: 2px 0px 0px 2px;
+        }
+      }
+      .add {
+        border: none;
+        background-color: #ffc350;
+        margin-top: 10px;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 5px;
+        padding: 5px 20px;
+      }
+    }
+  }
+  .dan-tuo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;;
+  }
+  .dan-sebo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .dan-shengxiao {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+.balls-grid {
+  border: 1px solid $baseColor;
+  .title {
+    background-color: $gridBgColor;
+  }
+}
+
+.zheng-fu-num {
+  .show-area {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $baseColor;
+    border-top: none;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    .selected-shown {
+      flex: 1;
+      height: 38px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      + .selected-shown {
+        border-left: 1px solid $baseColor;
+      }
+      .label {
+        font-size: 14px;
+        color: #333333;
+        padding: 0px 20px;
+        text-align: center;
+      }
+    }
+  }
+
+}
+
+.selected-num + .selected-num {
+  margin-left: 5px;
+}
+
+.mini-grid {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  border: 1px solid $baseColor;
+  .main-title {
+    background-color: $gridBgColor;
+    color: #333;
+  }
+  .cell {
+    .label {
+      width: 30%;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      i {
+        padding-top: 2px;
+        padding-right: 5px;
+        &:before {
+          font-size: 14px;
+        }
+      }
+      .icon-checkbox-check {
+        &:before {
+          color: $baseColor;
+        }
+      }
+      span {
+        font-size: 14px;
+      }
+
+    }
+    .nums {
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      > div {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span {
+          position: relative !important;
+        }
+      }
+    }
+  }
+}
+
+.quick-ball-grid {
+  width: 48%;
+  border: 1px solid $baseColor;
+}
+
+.ball-grid {
+  width: 62.5%;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  .row {
+    width: 100%;
+    .cell {
+      width: 20%;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid $gridBorderColor;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.wei-shu {
+  width: 12.5%;
+  display: inline-block;
+  vertical-align: top;
+  background-color: $gridBgColor;
+  border-right: 1px solid $gridBorderColor;
+  >.row {
+    div {
+      height: 36px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+    div:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.xiao-bo {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  background-color: $gridBgColor;
+  position: relative;
+  .col {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    &:first-child {
+      border-right: 1px solid $gridBorderColor;
+      border-left: 1px solid $gridBorderColor;
+    }
+    .row div {
+      height: 36px;
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+.quick-ball-grid .tips {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999999;
+  position: absolute;
+  bottom: -20px;
+}
+
+
+
+.simple-ball-grid {
+  border: 1px solid $baseColor;
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+  .main-title {
+    background-color: $gridBgColor;
+    color: #333;
+  }
+  .ball-grid {
+    width: 100%;
+  }
+  .se-bo {
+    width: 33.33%;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    + .se-bo {
+      border-left: 1px solid $gridBorderColor;
+    }
+    i {
+      padding-top: 3px;
+      padding-right: 5px;
+      &:before {
+        font-size: 16px;
+      }
+    }
+    .icon-radio-check {
+      &:before {
+        font-size: 18px;
+      }
+    }
+    span {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+
+.lian-grid {
+  width: 100%;
+  border: 1px solid $baseColor;
+  .title {
+    background-color: $gridBgColor;
+    color: #333;
+  }
+
+  .row.title .cell > div {
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cell {
+    width: 50%;
+  }
+  .label {
+    width: 20%;
+    background-color: $gridBgColor;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    i {
+      padding-top: 2px;
+      padding-right: 5px;
+      &:before {
+        font-size: 14px;
+      }
+    }
+    .icon-checkbox-check {
+      &:before {
+        color: $baseColor;
+      }
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+  .odds {
+    width: 20%;
+    color: #f73131;
+  }
+  .numbers {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    .num {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+        position: relative !important;
+      }
+    }
+  }
+  .title {
+    .odds {
+      color: #333;
+    }
+    .numbers {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+}
+
+/*
+* bet reault
+*/
+
+.lhc-bet-result {
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+  .desc {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .dotted {
+      border: 1px dashed #c9c9c9;
+      display: flex;
+      flex: 1;
+    }
+    .info-check {
+      padding: 0px 20px;
+      text-align: center;
+      font-size: 14px;
+      span {
+        color: #f73131;
+        padding: 0px 5px;
+      }
+    }
+  }
+  .table {
+    border: 1px solid $baseColor;
+    display: inline-block;
+    vertical-align: top;
+    width: 650px;
+    height: 180px;
+    .theader {
+      height: 35px;
+      background-color: $gridBgColor;
+    }
+    .tbody .row .group {
+      width: 56%;
+      float: right;
+      .combination {
+        width: 80%;
+      }
+      .operation {
+        width: 20%;
+      }
+    }
+    .operation {
+      width: 12%;
+    }
+    .tbody .row .operation {
+      color: #fa4242;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .sequence {
+      width: 12%;
+    }
+    .model {
+      width: 22%;
+    }
+    .combination {
+      width: 44%;
+    }
+    .odds {
+      width: 22%;
+    }
+    .tbody {
+      height: 143px;
+      overflow: auto;
+    }
+    .row {
+      border-bottom: none;
+    }
+    .tbody .row .odds {
+      color: #f73131;
+    }
+  }
+  .group {
+    display: inline-block;
+    vertical-align: top;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .info {
+    border: 1px solid $baseColor;
+    width: 340px;
+    height: 180px;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    padding: 20px;
+    .money {
+      padding-top: 5px;
+      padding-left: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      span {
+        font-size: 14px;
+      }
+      >div {
+        position: relative;
+        height: 35px;
+        input {
+          width: 192px;
+          height: 30px;
+          font-size: 14px;
+          background-color: #FFFFFF;
+          cursor: text;
+          border-radius: 4px;
+          border: 1px solid $baseColor;
+          padding: 0px 5px;
+        }
+      }
+
+    }
+    .tips {
+      padding-left: 85px;
+      padding-top: 10px;
+      span {
+        color: #333333;
+        font-size: 12px;
+      }
+    }
+    button {
+      width: 110px!important;
+      height: 30px!important;
+      font-size: 16px!important;
+    }
+    button + button {
+      margin-left: 20px!important;
+    }
+    .cancel {
+      width: 60px!important;
+    }
+  }
+  .btn-group {
+    padding-top: 20px;
+    text-align: center;
+    button {
+      border-radius: 4px;
+      border: none;
+      font-size: 20px;
+      width: 120px;
+      height: 40px;
+      color: #FFFFFF;
+    }
+    button + button {
+      margin-left: 50px;
+    }
+    .confirm {
+      background-color: $baseColor;
+    }
+    .cancel {
+      background-color: #CCCCCC;
+    }
+  }
+}
+
+.sequence, .model, .combination, .odds, .operation {
+  display: inline-block;
+  vertical-align: top;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+.dui-peng .mini-grid, .he-xiao .mini-grid {
+  width: 100%;
+}
+
+.quick-fill {
+  width: 90px;
+  position: absolute;
+  background-color: $gridBgColor;
+  left: 5%;
+  top: 35px;
+  z-index: 100;
+  box-shadow: 2px 2px 2px #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid $baseColor;
+  cursor: pointer;
+  &:before {
+    display: block;
+    content: '';
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent $baseColor transparent;
+    position:absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: -20px;
+  }
+  &:after {
+    display: block;
+    content: '';
+    border-width: 10px 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #FFFFFF transparent;
+    position:absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: -17px;
+  }
+  div + div {
+    border-top: 1px solid $baseColor;
+  }
+  div {
+   height: 28px;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 14px;
+   &:hover {
+     color: $baseColor;
+   }
+  }
+}
+
+.quick-setting-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .quick-setting-win {
+    background: #fff;
+    width: 300px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -50px;
+    >div {
+      width: 100%;
+    }
+    .quick-setting-title {
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 10px;
+      background-color: $baseColor;
+      span {
+        font-size: 14px;
+        color: #FFFFFF;
+      }
+      i {
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+    }
+    .quick-setting-content {
+      padding-top: 30px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      input {
+        width: 240px;
+        height: 50px;
+        background-color: #FFFDFA;
+        border: 1px solid $baseColor;
+        border-radius: 10px;
+        padding: 0px 20px;
+        font-size: 16px;
+        color: #333333;
+      }
+      input + input {
+        margin-top: 16px;
+      }
+      .status {
+        margin-top: 10px;
+        cursor: pointer;
+        span {
+          margin-left: 10px;
+          font-size: 16px;
+          color: #333333;
+        }
+      }
+    }
+    .quick-setting-bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 86px;
+      button {
+        width: 90px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+      .cancel {
+        border: 1px solid #979797;
+        color: #333333;
+        background-color: #FFFFFF;
+      }
+      .confirm {
+        margin-left: 23px;
+        border: none;
+        background-color: $baseColor;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+.quick-bet-area {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#BEFFBD, #FCFFF2);
+  margin-top: 10px;
+  .quick-money {
+    height: 66px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    > div {
+      width: 222px;
+      height: 38px;
+      background-color: #81DA7C;
+      border: none;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      label {
+        font-size: 14px;
+        color: #fff;
+      }
+      input {
+        width: 120px;
+        height: 26px;
+        border: 1px solid $baseColor;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        padding: 0px 10px;
+        font-size: 14px;
+      }
+    }
+
+  }
+  .quick-bet-select {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    div {
+      width: 64px;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #FFFFFF;
+      border: 1px solid #91DA79;
+      border-radius: 4px;
+      color: $baseColor;
+      font-size: 14px;
+      cursor: pointer;
+      margin-left: 7px;
+      margin-bottom: 9px;
+      &:hover {
+        border-color: $baseColor;
+      }
+    }
+    .case-selected {
+      border: 1px solid #7DC9FF;
+      background-color: $baseColor;
+      color: #FFFFFF;
+    }
+
+  }
+}

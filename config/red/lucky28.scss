@@ -1,0 +1,379 @@
+
+/*
+* lucky28.scss
+* 幸运28
+* 修改颜色需修改 baseColor，gridBorderColor
+*/
+
+$baseColor: #E94335 !default;
+$gridBorderColor: #FFD5D5 !default;
+
+// $baseColor: #FF7700 !default;
+// $gridBorderColor: #FFDAB5 !default;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$baseFontSize: 16px !default;
+
+@function pxToRem($px) {
+  @return $px / $baseFontSize * 1rem;
+}
+
+.lucky-28 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: 40px;
+  .lucky-grid {
+    display: flex;
+    width: 1000px;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 30px;
+    .grid-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 35px;
+      background: linear-gradient(#ECEAEA, #FFFFFF, #E7E7E7);
+      border: 1px solid #DBDBDB;
+      box-shadow: 0 2px 0 #E6E6E6;
+      .label {
+        background-color: $baseColor;
+        width: 96px;
+        height: 32px;
+        color: #fff;
+        @include center;
+        font-size: pxToRem(16px);
+        border-radius: 4px;
+      }
+    }
+    .grid-title {
+      display: flex;
+      flex-direction: row;
+      height: 42px;
+      background-color: #FFFCFA;
+      margin-top: 2px;
+      border-bottom: 1px solid $gridBorderColor;
+      border-right: 1px solid #DBDBDB;
+      border-left: 1px solid #DBDBDB;
+      .title-col {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        + .title-col {
+          border-left: 1px solid $gridBorderColor;
+        }
+        >div {
+          font-size: pxToRem(14px);
+          color: #333333;
+        }
+
+      }
+    }
+    .grid-body {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #DBDBDB;
+      border-right: 1px solid #DBDBDB;
+      border-left: 1px solid #DBDBDB;
+      .body-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        + .body-col {
+          border-left: 1px solid $gridBorderColor;
+        }
+        .body-row {
+          height: 40px;
+          display: flex;
+          flex-direction: row;
+          + .body-row {
+            border-top: 1px solid $gridBorderColor;
+          }
+        }
+      }
+    }
+    .option {
+      width: 96px;
+      @include center;
+      border-right: 1px solid $gridBorderColor;
+      div {
+        @include center;
+        width: 30px;
+        height: 30px;
+        background-color: #38BE4F;
+        border-radius: 50%;
+        color: #fff;
+        font-size: pxToRem(20px);
+      }
+    }
+    .lucky-odds {
+      flex: 1.5;
+      @include center;
+      border-right: 1px solid $gridBorderColor;
+      span {
+        color: #FF0000;
+        font-size: pxToRem(14px);
+      }
+    }
+    .money {
+      flex: 3;
+      @include center;
+      input {
+        width: 78px;
+        height: 26px;
+        border: 1px solid #DFE9EF;
+        background-color: #F0F6FA;
+        border-radius: 10px;
+        padding: 0px 10px;
+      }
+    }
+  }
+
+  .bao-san {
+    height: 52px;
+    background-color: #FAFAFA;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #DBDBDB;
+    border-right: 1px solid #DBDBDB;
+    border-left: 1px solid #DBDBDB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .label {
+      margin: 0px 3px;
+      width: 90px;
+      height: 32px;
+      @include center;
+      border: none;
+      border-radius: 33px;
+      background-color: #27BBD3;
+      box-shadow: 0px 1px 2px #999999;
+      color: #fff;
+      font-size: pxToRem(16px);
+    }
+    .bs-odds {
+      color: #FF0000;
+      font-size: pxToRem(14px);
+      width: 51.58px;
+      @include center;
+    }
+    .bs-content {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      .item {
+        width: 78px;
+        height: 32px;
+        background-color: #fff;
+        border: 1px solid #27BBD2;
+        box-shadow: 0px 1px 2px #999999;
+        @include center;
+        flex-direction: row;
+        cursor: pointer;
+        .num {
+          width: 24px;
+          height: 24px;
+          border: none;
+          border-radius: 50%;
+          @include center;
+          color: #fff;
+          font-size: pxToRem(14px);
+        }
+        i {
+          padding-top: 3px;
+          padding-left: 10px;
+        }
+        + .item {
+          margin-left: 20px;
+        }
+      }
+      .select-list {
+        width: 78px;
+        height: 131px;
+        border: 1px solid #27BBD2;
+        position: absolute;
+        background-color: #fff;
+        top: 31px;
+        box-shadow: 0px 2px 5px #999999;
+        cursor: pointer;
+        .select-list-item {
+          height: 24px;
+          border-bottom: 1px solid #DDDDDD;
+          @include center;
+          > div {
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: pxToRem(12px);
+            @include center;
+          }
+        }
+      }
+    }
+    .bs-money {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 20px;
+      span {
+        font-size: pxToRem(14px);
+        color: #333333;
+      }
+      input {
+        width: 78px;
+        height: 32px;
+        background-color: #fff;
+        border: 1px solid #27BBD2;
+        box-shadow: 0px 1px 2px #999999;
+        margin-right: 10px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  .lucky-result {
+    margin-top: 6px;
+    border-top: 1px dashed #979797;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+    .bet-table {
+      width: 790px;
+      display: flex;
+      flex-direction: column;
+      .table-cap {
+        height: 18px;
+        background-color: #FFF0E1;
+        border-radius: 100px;
+        border: 1px solid #F3E0CC;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        .cap-ct {
+          width: 770px;
+          height: 10px;
+          background-color: #E5CCB3;
+          border-radius: 100px;
+        }
+      }
+      .tb-ct {
+        margin-top: -6px;
+        padding: 0px 18px;
+        display: flex;
+        flex-direction: column;
+        .tb-header {
+          height: 34px;
+          background-color: #FFFDFA;
+          border: 1px solid #E5E5E5;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          > div {
+            flex: 1;
+            font-size: pxToRem(12px);
+            color: #999999;
+            @include center;
+          }
+          .lk-del {
+            flex: 0.1;
+            width: 32px;
+            margin-right: 10px;
+          }
+        }
+        .tb-body {
+          height: 165px;
+          border-left: 1px solid #E5E5E5;
+          border-right: 1px solid #E5E5E5;
+          overflow: auto;
+          .bd-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50px;
+            border-bottom: 1px dashed #DDDDDD;
+            > div {
+              flex: 1;
+              font-size: pxToRem(14px);
+              color: #333333;
+              @include center;
+            }
+            .lk-del {
+              flex: 0.1;
+              width: 32px;
+              margin-right: 10px;
+              cursor: pointer;
+            }
+          }
+        }
+        .tb-footer {
+          height: 40px;
+          background-color: #F1F1F1;
+          border-left: 1px solid #E5E5E5;
+          border-right: 1px solid #E5E5E5;
+          border-bottom: 1px solid #E5E5E5;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          align-items: center;
+          .bet-total {
+            padding-right: 10px;
+            span {
+              font-size: pxToRem(14px);
+              color: #333333;
+              span {
+                color: #FF0000;
+                padding: 0px 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .bet-actions {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      button {
+        width: 180px;
+        height: 54px;
+        border: none;
+        border-radius: 4px;
+        +button {
+          margin-top: 20px;
+        }
+      }
+      .add {
+        background: linear-gradient(#FFB000, #FD7700);
+        box-shadow: inset -2px -4px 1px #E96E11, inset 3px 4px 3px #FFC121;
+        color: #fff;
+        font-size: pxToRem(22px);
+      }
+      .del {
+        background-color: #DDDDDD;
+        box-shadow: inset -2px -4px 1px #D2D2D2, inset 3px 4px 3px #EAEAEA;
+        color: #999999;
+        font-size: pxToRem(22px);
+      }
+      .confirm {
+        background: linear-gradient(#FF531E, #D82222);
+        box-shadow: inset -2px -4px 1px #BE3636, inset 3px 4px 3px #FF7A65;
+        color: #fff;
+        font-size: pxToRem(22px);
+      }
+    }
+  }
+}

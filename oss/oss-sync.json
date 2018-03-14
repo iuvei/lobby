@@ -1,0 +1,8 @@
+{
+  "source": "dist/red",
+  "dest": "kosun.net/Public/Home/js/lottery/static",
+  "accessKeyId": "LTAIkjlMJMFyr8sm",
+  "secretAccessKey": "n2LOv19Q6i6LJN3pi9CMYpHjybxw40",
+  "endpoint": "http://oss-cn-shenzhen.aliyuncs.com",
+  "bucket": "cp-web"
+}
